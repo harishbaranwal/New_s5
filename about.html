@@ -100,15 +100,29 @@
       }
 
       .hero_section {
+        width: 100%;
+        height: 150px;
+        background-image: url(./assets/about_bg.png);
+        background-size: cover;
+        background-position: center;
+        position: relative;
         margin-top: 70px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        color: white;
+        font-family: "Avenir Next LT Pro", sans-serif;
       }
 
-      /* Video Styles */
-      .hero_section video {
-        width: 100%;
-        height: calc(100vh - 70px);
-        object-fit: cover;
-        position: relative;
+      .hero_section h2 {
+        font-size: 32px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #ebeef2;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        margin: 0;
+        padding-left:6%;
       }
 
       /* Footer Styles */
@@ -251,39 +265,37 @@
       }
     </style>
 
+    <style>
+      .about_section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #191a1c;
+        color: rgb(236, 239, 243);
+        height: 550px;
+      }
 
+      .about_section_left_part {
+        position: relative;
+        width: 42%;
+        overflow: hidden;
+        height: 100%;
+      }
 
-<style>
-    .about_section {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #191a1c;
-  color: rgb(236, 239, 243);
-  height: 650px;
-}
+      .about_section_left_part img {
+        position: absolute;
+        height: 100%;
+        width: auto;
+        top: 0;
+        left: 0;
+      }
 
-.about_section_left_part {
-  position: relative;
-  width: 42%;
-  overflow: hidden;
-  height: 100%;
-}
+      .about_section_right_part {
+        width: 58%;
+        padding: 80px;
+      }
 
-.about_section_left_part img {
-  position: absolute;
-  height: 100%;
-  width: auto;
-  top: 0;
-  left: 0;
-}
-
-.about_section_right_part {
-  width: 58%;
-  padding: 80px;
-}
-
-.about_section_right_part h2 {
+      .about_section_right_part h2 {
         margin-bottom: 15px;
         font-family: "Avenir Next LT Pro", sans-serif;
         font-size: 30px;
@@ -292,47 +304,46 @@
         text-transform: capitalize;
       }
 
-.about_section_right_part p {
-  margin: 20px 0;
-  line-height: 1.8;
-  color: #fff;
-}
+      .about_section_right_part p {
+        margin: 20px 0;
+        line-height: 1.5;
+        font-size: 14px;
+        color: #fff;
+      }
 
-.about_section_right_part p:last-of-type {
-  margin-bottom: 50px;
-}
-.about_section_right_part button {
-  padding: 10px 20px;
-  border: 1px solid #fff;
-  background: none;
-  color: #fff;
-  cursor: pointer;
-  display: inline-flex; /* Makes the button a flex container */
-  align-items: center; /* Vertically centers the content */
-  justify-content: center; /* Horizontally centers the content */
-}
+      .about_section_right_part p:last-of-type {
+        margin-bottom: 50px;
+      }
+      .about_section_right_part button {
+        padding: 10px 20px;
+        border: 1px solid #fff;
+        background: none;
+        color: #fff;
+        cursor: pointer;
+        display: inline-flex; /* Makes the button a flex container */
+        align-items: center; /* Vertically centers the content */
+        justify-content: center; /* Horizontally centers the content */
+      }
 
-.about_section_right_part button:hover {
-  background-color:rgb(236, 239, 243);
-  color: #191a1c;
-  transition: all 0.3s ease;
-}
+      .about_section_right_part button:hover {
+        background-color: rgb(236, 239, 243);
+        color: #191a1c;
+        transition: all 0.3s ease;
+      }
 
-.about_section_right_part button a {
-  text-decoration: none;
-  color: inherit;
-  display: inline-flex; /* Ensures the icon and text are inline */
-  align-items: center; /* Vertically aligns text and icon */
-}
+      .about_section_right_part button a {
+        text-decoration: none;
+        color: inherit;
+        display: inline-flex; /* Ensures the icon and text are inline */
+        align-items: center; /* Vertically aligns text and icon */
+      }
 
-.about_section_right_part button a i {
-  margin-left: 8px; /* Adds space between the text and the icon */
-  font-size: 16px; /* Adjusts the size of the icon */
-  margin-left:20px;
-}
-
-</style>
-
+      .about_section_right_part button a i {
+        margin-left: 8px; /* Adds space between the text and the icon */
+        font-size: 16px; /* Adjusts the size of the icon */
+        margin-left: 20px;
+      }
+    </style>
   </head>
   <body>
     <!-- Navbar -->
@@ -354,10 +365,7 @@
     </nav>
 
     <div class="hero_section">
-      <video autoplay muted loop width="100%" height="100%">
-        <source src="./assets/s5-AD-2021-1.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      <h2>ABOUT </h2>
     </div>
 
     <div class="about_section">
@@ -367,19 +375,31 @@
       <div class="about_section_right_part">
         <h2>ABOUT S5 CONTRACTORS</h2>
 
-   
-        
-<p>We are an architectural and interior design firm based in the UAE and operating worldwide.</p>
-<p>We have delivered a number of creative interiors for hospitality, healthcare, office, retail and residential spaces, from design concept to handover.</p>
-<p>We are a multicultural team of passionate individuals dedicated to delivering a unique project. This is always achieved through a tailored approach, reflecting the client’s needs and aspirations.</p>
-<button>
-    <a href="about.html" >
-      READ MORE <i class="fas fa-angle-right"></i>
-    </a>
-  </button>
-
-
-       
+        <p>
+          We are an architectural and interior design firm based in the UAE and
+          operating worldwide.
+        </p>
+        <p>
+          We have delivered a number of creative interiors for hospitality,
+          healthcare, office, retail and residential spaces, from design concept
+          to handover.
+        </p>
+        <p>
+          We are a multicultural team of passionate individuals dedicated to
+          delivering a unique project. This is always achieved through a
+          tailored approach, reflecting the client’s needs and aspirations.
+        </p>
+        <p>
+          We work hand in hand with a network of trusted worldwide partners in
+          order to accommodate the most varied and complex projects. Our
+          interiors are focused on flexibility and functionality without
+          compromising on style and design.
+        </p>
+        <p>
+          Our approach is to create the most suitable designs with assorted
+          architectural features and subtle touches and refinement; a vision of
+          elegance expressed with sensibility and care in every detail.
+        </p>
       </div>
     </div>
 
