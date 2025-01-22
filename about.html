@@ -129,7 +129,7 @@
       footer {
         background-color: #121212;
         color: white;
-        margin-top: 90px;
+        margin-top: 0px;
       }
 
       .footer-top {
@@ -343,6 +343,42 @@
         font-size: 16px; /* Adjusts the size of the icon */
         margin-left: 20px;
       }
+
+
+
+
+
+
+      .blur_section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px; /* Full viewport height */
+  background-color: #aaa;
+}
+
+.blur_section button {
+  border: 1px solid black;
+  background: transparent;
+  color: black;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between text and icon */
+  transition: all 0.3s ease; /* Smooth hover effect */
+}
+
+.blur_section button:hover {
+  background: black;
+  color: white;
+}
+
+
+
+
     </style>
   </head>
   <body>
@@ -359,7 +395,7 @@
         <a href="about.html">About Us</a>
         <a href="#services">Services</a>
         <a href="#projects">Projects</a>
-        <a href="#contact">Contact Us</a>
+        <a href="contact.html">Contact Us</a>
       </div>
       <button class="get-in-touch">Get in Touch</button>
     </nav>
@@ -403,6 +439,16 @@
       </div>
     </div>
 
+
+
+
+    <div class="blur_section">
+      <button onclick="window.location.href='contact.html'">
+        TALK WITH US <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+
+
     <!-- Footer -->
     <footer>
       <!-- Top Section -->
@@ -431,7 +477,7 @@
               <li><a href="about.html">About</a></li>
               <li><a href="#">Our Services</a></li>
               <li><a href="#">Our Projects</a></li>
-              <li><a href="#">Contact Us</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
               <li><a href="#">Get in Touch</a></li>
             </ul>
           </div>

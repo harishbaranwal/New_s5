@@ -100,22 +100,36 @@
       }
 
       .hero_section {
+        width: 100%;
+        height: 150px;
+        background-image: url(./assets/about_bg.png);
+        background-size: cover;
+        background-position: center;
+        position: relative;
         margin-top: 70px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        color: white;
+        font-family: "Avenir Next LT Pro", sans-serif;
       }
 
-      /* Video Styles */
-      .hero_section video {
-        width: 100%;
-        height: calc(100vh - 70px);
-        object-fit: cover;
-        position: relative;
+      .hero_section h2 {
+        font-size: 32px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #ebeef2;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        margin: 0;
+        padding-left:6%;
       }
 
       /* Footer Styles */
       footer {
         background-color: #121212;
         color: white;
-        margin-top: 90px;
+        margin-top: 0px;
       }
 
       .footer-top {
@@ -254,85 +268,117 @@
 
 
 <style>
-    .about_section {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #191a1c;
-  color: rgb(236, 239, 243);
-  height: 650px;
+    
+
+    .contact_section {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 4% 8%;
+    margin: 0 auto;
+    background-color: #1f2124;
 }
 
-.about_section_left_part {
-  position: relative;
-  width: 42%;
-  overflow: hidden;
-  height: 100%;
+.left_contact_section,
+.right_contact_section {
+    flex: 1;
+    background-color: #1f2124;
+    padding: 20px;
+    border-radius: 10px;
 }
 
-.about_section_left_part img {
-  position: absolute;
-  height: 100%;
-  width: auto;
-  top: 0;
-  left: 0;
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.about_section_right_part {
-  width: 58%;
-  padding: 80px;
+.form_row {
+    display: flex;
+    gap: 15px;
 }
 
-.about_section_right_part h2 {
-        margin-bottom: 15px;
+.form_group {
+    flex: 1;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding:15px  10px;
+    border: 1px solid #444;
+    background-color: #2b2d31;
+    color: #e4e4e4;
+    font-size: 15px;
+    outline: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #b3b3b3;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #f39c12;
+    background-color: #27292c;
+}
+
+textarea {
+    resize: none;
+}
+
+.submit_btn {
+    padding: 12px 20px;
+    background-color: #f39c12;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.submit_btn:hover {
+  background-color: #d35400;
+}
+
+.right_contact_section h4 {
+    color: #f39c12;
+    margin-bottom: 10px;
+}
+
+.right_contact_section h2 {
+  
+    margin-bottom: 15px;
         font-family: "Avenir Next LT Pro", sans-serif;
         font-size: 30px;
         font-weight: 800;
         color: #fff;
         text-transform: capitalize;
-      }
-
-.about_section_right_part p {
-  margin: 20px 0;
-  line-height: 1.8;
-  color: #fff;
 }
 
-.about_section_right_part p:last-of-type {
-  margin-bottom: 50px;
-}
-.about_section_right_part button {
-  padding: 10px 20px;
-  border: 1px solid #fff;
-  background: none;
-  color: #fff;
-  cursor: pointer;
-  display: inline-flex; /* Makes the button a flex container */
-  align-items: center; /* Vertically centers the content */
-  justify-content: center; /* Horizontally centers the content */
+.right_contact_section p {
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: #b3b3b3;
 }
 
-.about_section_right_part button:hover {
-  background-color:rgb(236, 239, 243);
-  color: #191a1c;
-  transition: all 0.3s ease;
+@media (max-width: 768px) {
+    .contact_section {
+        flex-direction: column;
+    }
+
+    .form_row {
+        flex-direction: column;
+    }
 }
 
-.about_section_right_part button a {
-  text-decoration: none;
-  color: inherit;
-  display: inline-flex; /* Ensures the icon and text are inline */
-  align-items: center; /* Vertically aligns text and icon */
-}
 
-.about_section_right_part button a i {
-  margin-left: 8px; /* Adds space between the text and the icon */
-  font-size: 16px; /* Adjusts the size of the icon */
-  margin-left:20px;
-}
+
 
 </style>
-
+   
   </head>
   <body>
     <!-- Navbar -->
@@ -354,34 +400,57 @@
     </nav>
 
     <div class="hero_section">
-      <video autoplay muted loop width="100%" height="100%">
-        <source src="./assets/s5-AD-2021-1.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      <h2>CONTACT </h2>
     </div>
 
-    <div class="about_section">
-      <div class="about_section_left_part">
-        <img src="./assets/about_scetion.png" alt="About Us Image" />
-      </div>
-      <div class="about_section_right_part">
-        <h2>ABOUT S5 CONTRACTORS</h2>
-
-   
-        
-<p>We are an architectural and interior design firm based in the UAE and operating worldwide.</p>
-<p>We have delivered a number of creative interiors for hospitality, healthcare, office, retail and residential spaces, from design concept to handover.</p>
-<p>We are a multicultural team of passionate individuals dedicated to delivering a unique project. This is always achieved through a tailored approach, reflecting the client’s needs and aspirations.</p>
-<button>
-    <a href="about.html" >
-      READ MORE <i class="fas fa-angle-right"></i>
-    </a>
-  </button>
 
 
-       
-      </div>
+
+
+    <div class="contact_section">
+        <div class="left_contact_section">
+            <form>
+                <div class="form_row">
+                    <div class="form_group">
+                        <input type="text" id="name" name="name" placeholder="Name" required />
+                    </div>
+                    <div class="form_group">
+                        <input type="email" id="email" name="email" placeholder="Email" required />
+                    </div>
+                </div>
+                <div class="form_row">
+                    <div class="form_group">
+                        <input type="tel" id="phone" name="phone" placeholder="Phone Number" required />
+                    </div>
+                    <div class="form_group">
+                        <input type="text" id="address" name="address" placeholder="Address" required />
+                    </div>
+                </div>
+                <div class="form_row">
+                    <div class="form_group full_width">
+                        <input type="text" id="subject" name="subject" placeholder="Subject" required />
+                    </div>
+                </div>
+                <div class="form_row">
+                    <div class="form_group full_width">
+                        <textarea id="message" name="message" rows="4" placeholder="Message" required></textarea>
+                    </div>
+                </div>
+                <div class="form_row">
+                    <button type="submit" class="submit_btn">Submit</button>
+                </div>
+            </form>
+        </div>
+    
+        <div class="right_contact_section">
+            <h4>We would love to hear from you!</h4>
+            <h2>CONTACT S5 </h2>
+            <p>At S5 Contractors, we specialize in crafting exceptional architectural and interior designs for hospitality, healthcare, office, retail, and residential spaces. From concept to handover, we bring your vision to life with creativity and precision.</p>
+            <p>Get in touch today to discuss your project and discover how we can transform your space into an inspiring environment. Let’s create something extraordinary together!</p>
+        </div>
     </div>
+    
+
 
     <!-- Footer -->
     <footer>
