@@ -292,7 +292,7 @@
 
 <style>
   
-  .service_page_section {
+  .project_page_section {
   background-color: #191a1c;
   display: flex;
   justify-content: center;
@@ -301,13 +301,13 @@
   flex-direction: row;
 }
 
-.service_page_section_content {
+.project_page_section_content {
   color: #fff;
   flex: 1;
   padding-top: 50px;
 }
 
-.service_page_section img {
+.project_page_section img {
   flex: 1;
   width: 100%;
   max-height: 350px;
@@ -342,38 +342,21 @@
 
 
 
-<!-- 
+
+
+
+
   <div class="hero_section">
-    <h2>RESIDENTIAL DESIGN & BUILD</h2>
+    <h2 id="project_category"></h2>
   </div>
-
-
-
-
-  <div class="service_page_section">
-    <div class="service_page_section_content">
-        <p>We deliver personalized interior design and build services for residential projects across UAE and the region; complete refurbishments, extensions, existing space conversions, and top-notch renovations.</p>
-      </div>
-      <img src="./assets/sq_RESIDENTIAL-DESIGN-BUILD.jpg" alt="Service Image 1">
+  
+  <div class="project_page_section">
+    <div class="project_page_section_content">
+      <h3 id="project_heading"></h3>
+      <p id="project_description"></p>
     </div>
-  </div> -->
-
-
-
-
-  <div class="hero_section">
-    <h2 id="service_title"></h2>
-</div>
-
-<div class="service_page_section">
-    <div class="service_page_section_content">
-        <p id="service_description"></p>
-    </div>
-    <img id="service_image" src="" alt="Service Image">
-</div>
-
-
-
+    <img id="project_image" src="" alt="Project Image">
+  </div>
 
 
 
@@ -451,72 +434,159 @@
 
 
 
+
   <script>
-    // Get the query parameter from the URL
+
     const urlParams = new URLSearchParams(window.location.search);
-    const serviceName = urlParams.get('service');
+    const projectName = urlParams.get('project');
 
-    // Define data for each service
-    const services = {
-        "Residential Design and Build": {
-            title: "RESIDENTIAL DESIGN & BUILD",
-            description: "We deliver personalized interior design and build services for residential projects across UAE and the region; complete refurbishments, extensions, existing space conversions, and top-notch renovations.",
-            image: "./assets/sq_RESIDENTIAL-DESIGN-BUILD.jpg"
-        },
-        "Corporate Design and Build": {
-            title: "CORPORATE DESIGN & BUILD",
-            description: "We create a space that represents the DNA of your brand – each detail is crafted keeping the brand’s personality in mind so that it helps clients understand your business, captures your brand values, and connects your team.",
-            image: "./assets/sq_CORPORATE-DESIGN-BUILD.jpg"
-        },
-        "Landscaping": {
-            title: "LANDSCAPING",
-            description: "We create award-winning landscape designs that give your home instant appeal and value. From privacy hedges to artistic landscape designs, we provide quality services.",
-            image: "./assets/sq_LANDSCAPING.jpg"
-        },
-        "Swimming Pool": {
-            title: "SWIMMING POOL",
-            description: "Allow us to customize an outdoor living experience with our Pro Edge professionals. We set a new benchmark in pool design & build quality.",
-            image: "./assets/sq_SWIMMING-POOL.jpg"
-        },
-        "Design Consultancy": {
-            title: "DESIGN CONSULTANCY",
-            description: "We offer a complete turn-key interior design solution that removes the hassle and lets you choose your personal design options from the comfort of your space.",
-            image: "./assets/sq_DESIGN-CONSULTANCY.jpg"
-        },
-        "Bespoke Furniture Design": {
-            title: "BESPOKE FURNITURE DESIGN",
-            description: "We design and customize furniture that blends with your brand, ensuring comfort and creativity while enhancing the aesthetic of the space.",
-            image: "./assets/sq_BESPOKE-FURNITURE-DESIGN.jpg"
-        },
-        "Retail": {
-            title: "RETAIL",
-            description: "We design and build retail experiences that engage customers, influence brand loyalty, and maximize time spent in-store.",
-            image: "./assets/sq_RETAIL.jpg"
-        },
-        "Hospitality": {
-            title: "HOSPITALITY",
-            description: "We provide extraordinary hospitality design and build solutions, creating iconic and remarkable projects through creative, out-of-the-box ideas.",
-            image: "./assets/sq_HOSPITALITY.jpg"
-        },
-        "FandB": {
-            title: "F&B",
-            description: "We create restaurant layouts that attract customers, ensuring a successful project with our ideas, contractor services, project management, and maintenance support.",
-            image: "./assets/sq_FB.jpg"
-        }
-    };
+    const projects = {
+  "consultancy/two-way-approach-matters": {
+    title: "CONSULTANCY",
+    heading: "TWO-WAY APPROACH MATTERS",
+    description: "Description 1",
+    image: "./assets/consultancy_project_consultancy-700x466.jpg"
+  },
+  "corporate/the-breathing-space": {
+    title: "CORPORATE",
+    heading: "THE BREATHING SPACE",
+    description: "Description 2",
+    image: "./assets/corporate_project_Breathing-Space-700x466.jpg"
+  },
+  "furniture/go-wooden-go-royal": {
+    title: "FURNITURE",
+    heading: "GO WOODEN - GO ROYAL",
+    description: "Description 3",
+    image: "./assets/furniture_project_image11-700x466.jpeg"
+  },
+  "landscaping/corridor-landscaping": {
+    title: "LANDSCAPING",
+    heading: "CORRIDOR LANDSCAPING",
+    description: "Description 4",
+    image: "./assets/landscaping_project_image5-700x466.jpeg"
+  },
+  "retail/vision-captured": {
+    title: "RETAIL",
+    heading: "VISION CAPTURED",
+    description: "Description 5",
+    image: "./assets/retail_project_image13-700x466.jpeg"
+  },
+  "consultancy/design-your-space-build-your-dream": {
+    title: "CONSULTANCY",
+    heading: "DESIGN YOUR SPACE, BUILD YOUR DREAM",
+    description: "Description 6",
+    image: "./assets/consultancy_project_2.jpg"
+  },
+  "corporate/the-ideal-meeting-room": {
+    title: "CORPORATE",
+    heading: "THE IDEAL MEETING ROOM",
+    description: "Description 7",
+    image: "./assets/corporate_project_Meeting-Room-700x466.jpg"
+  },
+  "furniture/design-matching": {
+    title: "FURNITURE",
+    heading: "DESIGN MATCHING",
+    description: "Description 8",
+    image: "./assets/furniture_project_image12-700x466.jpeg"
+  },
+  "hospitality/it-cant-be-warmer": {
+    title: "HOSPITALITY",
+    heading: "IT CAN'T BE WARMER",
+    description: "Description 9",
+    image: "./assets/hospitality_project_It-cant-be-warmer-700x466.jpg"
+  },
+  "swimming-pool/more-than-a-swimming-pool": {
+    title: "SWIMMING-POOL",
+    heading: "MORE THAN A SWIMMING POOL",
+    description: "Description 10",
+    image: "./assets/swimming_project_image8-1-700x466.jpeg"
+  },
+  "consultancy/innovation-meets-craftsmanship": {
+    title: "CONSULTANCY",
+    heading: "INNOVATION MEETS CRAFTSMANSHIP",
+    description: "Description 11",
+    image: "./assets/consultancy_project_3.jpg"
+  },
+  "hospitality/welcoming-spaces-warm-experiences": {
+    title: "HOSPITALITY",
+    heading: "Welcoming Spaces, Warm Experiences",
+    description: "Description 12",
+    image: "./assets/hospitality_project_2.jpg"
+  },
+  "swimming-pool/water-surroundings": {
+    title: "SWIMMING-POOL",
+    heading: "WATER & SURROUNDINGS",
+    description: "Description 13",
+    image: "./assets/swimming_project_image9-635x466.jpeg"
+  },
+  "retail/clothing-that-speaks-style-and-comfort": {
+    title: "RETAIL",
+    heading: "CLOTHING THAT SPEAKS STYLE AND COMFORT",
+    description: "Description 14",
+    image: "./assets/retail_project_3.jpg"
+  },
+  "corporate/hello-luxury": {
+    title: "CORPORATE",
+    heading: "HELLO LUXURY",
+    description: "Description 15",
+    image: "./assets/corporate_project_Luxury-700x466.jpg"
+  },
+  "furniture/where-function-meets-elegance": {
+    title: "FURNITURE",
+    heading: "WHERE FUNCTION MEETS ELEGANCE",
+    description: "Description 16",
+    image: "./assets/furniture_project_3.jpg"
+  },
+  "landscaping/oriented-rest-area": {
+    title: "LANDSCAPING",
+    heading: "ORIENTED REST AREA",
+    description: "Description 17",
+    image: "./assets/landscaping_project_image7.jpeg"
+  },
+  "hospitality/where-comfort-meets-care": {
+    title: "HOSPITALITY",
+    heading: "Where Comfort Meets Care",
+    description: "Description 18",
+    image: "./assets/hospitality_project_3.jpg"
+  },
+  "swimming-pool/decoration-meets-usability": {
+    title: "SWIMMING-POOL",
+    heading: "DECORATION MEETS USABILITY",
+    description: "Description 19",
+    image: "./assets/swimming_project_SWIMMING-POOL-700x390.jpg"
+  },
+  "landscaping/greenscapes-that-inspire-relaxation": {
+    title: "LANDSCAPING",
+    heading: "GREENSCAPES THAT INSPIRE RELAXATION",
+    description: "Description 20",
+    image: "./assets/landscaping_project_3.jpg"
+  },
+  "retail/shoe-shopping-with-comfort": {
+    title: "RETAIL",
+    heading: "SHOE SHOPPING WITH COMFORT",
+    description: "Description 21",
+    image: "./assets/retail_project_image14-700x466.jpeg"
+  }
+};
 
-    // Check if the service name exists in the services object and update the page
-    if (serviceName && services[serviceName]) {
-        document.getElementById('service_title').textContent = services[serviceName].title;
-        document.getElementById('service_description').textContent = services[serviceName].description;
-        document.getElementById('service_image').src = services[serviceName].image;
-    } else {
-        // Handle case if no service is found (e.g., show an error or default content)
-        document.getElementById('service_title').textContent = "Service Not Found";
-        document.getElementById('service_description').textContent = "Sorry, the service you are looking for does not exist.";
-        document.getElementById('service_image').src = "./assets/default.jpg";
-    }
-</script>
+
+
+    if (projectName && projects[projectName]) {
+    document.getElementById('project_category').textContent = projects[projectName].title;  // Changed 'project_title' to 'project_category'
+    document.getElementById('project_heading').textContent = projects[projectName].heading;
+    document.getElementById('project_description').textContent = projects[projectName].description;
+    document.getElementById('project_image').src = projects[projectName].image;
+  } else {
+    // Handle case if no project is found (e.g., show an error or default content)
+    document.getElementById('project_category').textContent = "Project Not Found";  // Changed 'project_title' to 'project_category'
+    document.getElementById('project_heading').textContent = "Project Heading Missing";
+    document.getElementById('project_description').textContent = "Sorry, the project you are looking for does not exist.";
+    document.getElementById('project_image').src = "./assets/default.jpg";
+
+  }
+
+  </script>
+
 
   
   <script src="script.js"></script>
