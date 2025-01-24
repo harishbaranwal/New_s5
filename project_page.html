@@ -290,35 +290,36 @@
 
 
 
+
 <style>
-  
   .project_page_section {
-  background-color: #191a1c;
-  display: flex;
-  justify-content: center;
-  padding: 70px;
-  gap: 20px;
-  flex-direction: row;
-}
+    background-color: #191a1c;
+    display: flex;
+    justify-content: center;
+    padding: 70px;
+    gap: 60px;
+    flex-direction: row;
+  }
+  
+  .project_page_section img {
+    flex: 0 0 65%; /* Image takes 60% of the width */
+    max-width: 65%;
+    width: 100%; /* Ensures the image scales properly */
+    height: auto; /* Automatically adjusts height based on width */
+    object-fit: cover; /* Ensures the image fills its box proportionally */
+  }
+  
+  .project_page_section_content {
+    color: #fff;
+    flex: 1; 
+    padding-top: 30px;
+  }
 
-.project_page_section_content {
-  color: #fff;
-  flex: 1;
-  padding-top: 50px;
-}
-
-.project_page_section img {
-  flex: 1;
-  width: 100%;
-  max-height: 350px;
-  height: auto;
-  object-fit: cover;
-}
-
-
+  .project_page_section_content  p{
+    margin-top: 20px;
+  }
 
   </style>
-
 
 
 </head>
@@ -351,11 +352,13 @@
   </div>
   
   <div class="project_page_section">
+    
+    <img id="project_image" src="" alt="Project Image">
+
     <div class="project_page_section_content">
       <h3 id="project_heading"></h3>
       <p id="project_description"></p>
     </div>
-    <img id="project_image" src="" alt="Project Image">
   </div>
 
 
@@ -440,134 +443,137 @@
     const urlParams = new URLSearchParams(window.location.search);
     const projectName = urlParams.get('project');
 
+
+
     const projects = {
   "consultancy/two-way-approach-matters": {
     title: "CONSULTANCY",
     heading: "TWO-WAY APPROACH MATTERS",
-    description: "Description 1",
+    description: "A two-way approach in consultancy focuses on open communication and collaboration, ensuring the best outcomes through mutual understanding and shared knowledge.",
     image: "./assets/consultancy_project_consultancy-700x466.jpg"
   },
   "corporate/the-breathing-space": {
     title: "CORPORATE",
     heading: "THE BREATHING SPACE",
-    description: "Description 2",
+    description: "This space blends air and glass with simplicity to create a unique, elegant environment. It inspires productivity and creativity, offering a dynamic atmosphere for work.",
     image: "./assets/corporate_project_Breathing-Space-700x466.jpg"
   },
   "furniture/go-wooden-go-royal": {
     title: "FURNITURE",
     heading: "GO WOODEN - GO ROYAL",
-    description: "Description 3",
+    description: "Wood, when selected and treated with purpose, provides a royal touch to any space. The perfect combination of functionality and beauty brings warmth and sophistication to the room.",
     image: "./assets/furniture_project_image11-700x466.jpeg"
   },
   "landscaping/corridor-landscaping": {
     title: "LANDSCAPING",
     heading: "CORRIDOR LANDSCAPING",
-    description: "Description 4",
+    description: "This villa corridor was transformed into a peaceful sanctuary, blending greenery, light, and flooring in harmony. It now creates an inviting and vibrant atmosphere.",
     image: "./assets/landscaping_project_image5-700x466.jpeg"
   },
   "retail/vision-captured": {
     title: "RETAIL",
     heading: "VISION CAPTURED",
-    description: "Description 5",
+    description: "This optical retail chain in Saudi Arabia sets a new standard of elegance, offering a refined experience that attracts unique buyers and curious shoppers alike.",
     image: "./assets/retail_project_image13-700x466.jpeg"
   },
   "consultancy/design-your-space-build-your-dream": {
     title: "CONSULTANCY",
     heading: "DESIGN YOUR SPACE, BUILD YOUR DREAM",
-    description: "Description 6",
+    description: "Designing a space that reflects your dreams and aspirations takes careful planning and a creative approach. We work with you to transform ideas into reality.",
     image: "./assets/consultancy_project_2.jpg"
   },
   "corporate/the-ideal-meeting-room": {
     title: "CORPORATE",
     heading: "THE IDEAL MEETING ROOM",
-    description: "Description 7",
+    description: "This meeting room was designed with every detail in mind, from air circulation to seating arrangements, ensuring optimal productivity and comfort for all users.",
     image: "./assets/corporate_project_Meeting-Room-700x466.jpg"
   },
   "furniture/design-matching": {
     title: "FURNITURE",
     heading: "DESIGN MATCHING",
-    description: "Description 8",
+    description: "The challenge of designing furniture that perfectly complements its surroundings was embraced here, ensuring each piece fits the space while enhancing sophistication and modernity.",
     image: "./assets/furniture_project_image12-700x466.jpeg"
   },
   "hospitality/it-cant-be-warmer": {
     title: "HOSPITALITY",
     heading: "IT CAN'T BE WARMER",
-    description: "Description 9",
+    description: "True hospitality engages all the senses, offering a warm, welcoming atmosphere where comfort transcends design to create a place of true joy and relaxation.",
     image: "./assets/hospitality_project_It-cant-be-warmer-700x466.jpg"
   },
   "swimming-pool/more-than-a-swimming-pool": {
     title: "SWIMMING-POOL",
     heading: "MORE THAN A SWIMMING POOL",
-    description: "Description 10",
+    description: "A pool becomes more than just a space for swimming when it’s paired with serene seating areas and beautiful accessories, offering a place for both relaxation and enjoyment.",
     image: "./assets/swimming_project_image8-1-700x466.jpeg"
   },
   "consultancy/innovation-meets-craftsmanship": {
     title: "CONSULTANCY",
     heading: "INNOVATION MEETS CRAFTSMANSHIP",
-    description: "Description 11",
+    description: "Blending innovation with craftsmanship, we create solutions that not only meet functional needs but also elevate the aesthetic value of every project.",
     image: "./assets/consultancy_project_3.jpg"
   },
   "hospitality/welcoming-spaces-warm-experiences": {
     title: "HOSPITALITY",
     heading: "Welcoming Spaces, Warm Experiences",
-    description: "Description 12",
+    description: "Creating spaces that embrace guests with warmth and comfort, we ensure every detail contributes to a memorable, welcoming experience.",
     image: "./assets/hospitality_project_2.jpg"
   },
   "swimming-pool/water-surroundings": {
     title: "SWIMMING-POOL",
     heading: "WATER & SURROUNDINGS",
-    description: "Description 13",
+    description: "By incorporating water elements and the color blue, we’ve created an aesthetic and relaxing environment, enhanced by the warmth of wooden cladding to bring a sense of coziness.",
     image: "./assets/swimming_project_image9-635x466.jpeg"
   },
   "retail/clothing-that-speaks-style-and-comfort": {
     title: "RETAIL",
     heading: "CLOTHING THAT SPEAKS STYLE AND COMFORT",
-    description: "Description 14",
+    description: "The blend of style and comfort in retail spaces elevates the shopping experience, creating a welcoming environment where each piece of clothing offers both luxury and ease.",
     image: "./assets/retail_project_3.jpg"
   },
   "corporate/hello-luxury": {
     title: "CORPORATE",
     heading: "HELLO LUXURY",
-    description: "Description 15",
+    description: "Luxury is a mindset, a way of elevating experiences. This space was designed to meet new standards of comfort and sophistication, creating a truly luxurious environment.",
     image: "./assets/corporate_project_Luxury-700x466.jpg"
   },
   "furniture/where-function-meets-elegance": {
     title: "FURNITURE",
     heading: "WHERE FUNCTION MEETS ELEGANCE",
-    description: "Description 16",
+    description: "Designing furniture that seamlessly blends function and elegance, we create pieces that enhance both practicality and beauty in every space.",
     image: "./assets/furniture_project_3.jpg"
   },
   "landscaping/oriented-rest-area": {
     title: "LANDSCAPING",
     heading: "ORIENTED REST AREA",
-    description: "Description 17",
+    description: "This restful corner was transformed into an oriental retreat, featuring simple yet elegant decor that brings a sense of peace and romance, especially when candles are lit.",
     image: "./assets/landscaping_project_image7.jpeg"
   },
   "hospitality/where-comfort-meets-care": {
     title: "HOSPITALITY",
     heading: "Where Comfort Meets Care",
-    description: "Description 18",
+    description: "Comfort and care are intertwined in this project, where every detail was considered to create a space that nourishes the body and soul, providing a sense of tranquility and wellbeing.",
     image: "./assets/hospitality_project_3.jpg"
   },
   "swimming-pool/decoration-meets-usability": {
     title: "SWIMMING-POOL",
     heading: "DECORATION MEETS USABILITY",
-    description: "Description 19",
+    description: "This pool design combines functional use with artistic value, creating a space that enhances both social life and the aesthetic appeal of the property.",
     image: "./assets/swimming_project_SWIMMING-POOL-700x390.jpg"
   },
   "landscaping/greenscapes-that-inspire-relaxation": {
     title: "LANDSCAPING",
     heading: "GREENSCAPES THAT INSPIRE RELAXATION",
-    description: "Description 20",
+    description: "The careful integration of greenery into landscapes provides a soothing environment that inspires relaxation, turning outdoor spaces into peaceful retreats.",
     image: "./assets/landscaping_project_3.jpg"
   },
   "retail/shoe-shopping-with-comfort": {
     title: "RETAIL",
     heading: "SHOE SHOPPING WITH COMFORT",
-    description: "Description 21",
+    description: "Shoe shopping has become an elevated experience, where comfort meets style to entertain the eye, soul, and feet within a luxurious retail space.",
     image: "./assets/retail_project_image14-700x466.jpeg"
   }
 };
+
 
 
 
