@@ -460,19 +460,22 @@
 
 
 
+
+
+
+
+
   <style>
     .service_section {
       display: flex;
       flex-direction: column;
       flex-wrap: wrap;
       justify-content: space-between;
-
     }
 
     .service_section_part {
       display: flex;
       flex-basis: calc(50% - 10px);
-      /* Ensures 2 items per row */
       align-items: stretch;
       height: 100%;
       box-sizing: border-box;
@@ -482,7 +485,6 @@
     .left_img_service_part {
       display: flex;
       flex: 1;
-      align-items: center;
       justify-content: space-between;
     }
 
@@ -499,14 +501,13 @@
     .right_img_service_part img,
     .left_img_service_part img {
       width: 42%;
-      /* Image part takes 40% of the container width */
       height: auto;
+      object-fit: cover;
     }
 
     .right_img_service_part_content,
     .left_img_service_part_content {
       width: 58%;
-      /* Content part takes 60% of the container width */
       box-sizing: border-box;
       color: #aaa;
       display: flex;
@@ -519,7 +520,6 @@
       font-size: 1.5rem;
       margin-bottom: 10px;
     }
-
 
     .right_img_service_part_content p,
     .left_img_service_part_content p {
@@ -538,9 +538,7 @@
       align-items: center;
       border: 1px solid #ddd;
       text-decoration: none;
-      /* Removes underline from the link */
       width: fit-content;
-      /* Ensures the button width is based on content size */
       transition: background-color 0.3s, color 0.3s;
     }
 
@@ -553,27 +551,50 @@
       color: black;
     }
 
-    /* Ensures all sections are the same height */
-    .service_section_part {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: stretch;
-      max-height: 380px;
-    }
+    @media (max-width: 990px) {
+      .right_img_service_part {
+        flex-direction: column-reverse;
+      }
 
-    @media screen and (max-width: 768px) {
-      .service_section_part {
-        flex-basis: 100%;
-        /* Stack vertically on smaller screens */
+      .left_img_service_part {
+        flex-direction: column;
       }
 
       .right_img_service_part img,
       .left_img_service_part img {
         width: 100%;
-        /* Image takes full width on mobile */
+        height: auto;
+      }
+
+      .right_img_service_part_content,
+      .left_img_service_part_content {
+        width: 100%;
+      }
+    }
+
+    @media(max-width:768px){
+      .left_img_service_part_content,
+      .right_img_service_part_content {
+        padding: 40px 50px 60px 50px;
+      }
+    }
+
+    @media(max-width:550px){
+      .left_img_service_part_content,
+      .right_img_service_part_content {
+        padding: 40px 40px 60px 40px;
+      }
+      .right_img_service_part_content h3,
+      .left_img_service_part_content h3 {
+        font-size: 1.4rem;
       }
     }
   </style>
+
+
+
+
+
 
 
 
@@ -622,11 +643,11 @@
             class="fas fa-angle-right"></i></a>
 
       </div>
-      <img src="./assets/sq_RESIDENTIAL-DESIGN-BUILD.jpg" alt="Service Image 1">
+      <img src="./assets/3_2_RESIDENTIAL-DESIGN-BUILD.jpg" alt="Service Image 1">
     </div>
 
     <div class="left_img_service_part service_section_part">
-      <img src="./assets/sq_CORPORATE-DESIGN-BUILD.jpg" alt="Service Image 2">
+      <img src="./assets/3_2_CORPORATE-DESIGN-BUILD.jpg" alt="Service Image 2">
       <div class="left_img_service_part_content">
 
         <h3>CORPORATE DESIGN & BUILD</h3>
@@ -650,11 +671,11 @@
             class="fas fa-angle-right"></i></a>
 
       </div>
-      <img src="./assets/sq_LANDSCAPING.jpg" alt="Service Image 1">
+      <img src="./assets/3_2_LANDSCAPING.jpg" alt="Service Image 1">
     </div>
 
     <div class="left_img_service_part service_section_part">
-      <img src="./assets/sq_SWIMMING-POOL.jpg" alt="Service Image 2">
+      <img src="./assets/3_2_SWIMMING-POOL.jpg" alt="Service Image 2">
       <div class="left_img_service_part_content">
         <h3>SWIMMING POOL</h3>
         <p>Poolside is the best side and many memories made at the pool last a lifetime. Allow us to customize an
@@ -680,11 +701,11 @@
             class="fas fa-angle-right"></i></a>
 
       </div>
-      <img src="./assets/sq_DESIGN-CONSULTANCY.jpg" alt="Service Image 1">
+      <img src="./assets/3_2_DESIGN-CONSULTANCY.jpg" alt="Service Image 1">
     </div>
 
     <div class="left_img_service_part service_section_part">
-      <img src="./assets/sq_BESPOKE-FURNITURE-DESIGN.jpg" alt="Service Image 2">
+      <img src="./assets/3_2_BESPOKE-FURNITURE-DESIGN.jpg" alt="Service Image 2">
       <div class="left_img_service_part_content">
         <h3>BESPOKE FURNITURE DESIGN</h3>
         <p>We design and customize furniture that blends with your brand, using our aesthetic sense and creativity in
@@ -708,11 +729,11 @@
         <a href="service_page.html?service=Retail" class="read_more">Read More <i class="fas fa-angle-right"></i></a>
 
       </div>
-      <img src="./assets/sq_RETAIL.jpg" alt="Service Image 1">
+      <img src="./assets/3_2_RETAIL.jpg" alt="Service Image 1">
     </div>
 
     <div class="left_img_service_part service_section_part">
-      <img src="./assets/sq_HOSPITALITY.jpg" alt="Service Image 2">
+      <img src="./assets/3_2_HOSPITALITY.jpg" alt="Service Image 2">
       <div class="left_img_service_part_content">
         <h3>HOSPITALITY</h3>
         <p>We provide extraordinary hospitality design and build, fueled by the power of creative solutions and
@@ -736,7 +757,7 @@
           people, your contractor, your project manager, your removal company, and your maintenance support.</p>
         <a href="service_page.html?service=FandB" class="read_more">Read More <i class="fas fa-angle-right"></i></a>
       </div>
-      <img src="./assets/sq_FB.jpg" alt="Service Image 1">
+      <img src="./assets/3_2_FB.jpg" alt="Service Image 1">
     </div>
 
 
