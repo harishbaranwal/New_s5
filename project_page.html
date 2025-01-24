@@ -16,8 +16,10 @@
   <!-- Styles -->
   <link rel="stylesheet" href="styles.css" />
 
+
+
+  <!-- Header -->
   <style>
-    /* General Reset */
     * {
       margin: 0;
       padding: 0;
@@ -30,8 +32,6 @@
       color: #333;
     }
 
-    /* Navbar Styles */
-
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -40,12 +40,10 @@
       background-color: #191a1c;
       color: #fff;
       position: fixed;
-      /* Make the navbar fixed */
       top: 0;
       left: 0;
       right: 0;
       z-index: 1000;
-      /* Ensure it's above other elements */
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
 
@@ -59,6 +57,7 @@
       display: flex;
       gap: 1rem;
       align-items: center;
+      transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
     }
 
     .navbar .nav-links a {
@@ -66,19 +65,10 @@
       color: #fff;
       font-size: 1rem;
       transition: color 0.3s;
-      font-family: "Roboto", Arial, sans-serif;
-      position: relative;
     }
 
     .navbar .nav-links a:hover {
       color: #f39c12;
-    }
-
-    .navbar .nav-links a:not(:last-child)::after {
-      content: "|";
-      color: #fff;
-      margin-left: 0.5rem;
-      margin-right: 0.5rem;
     }
 
     .navbar .get-in-touch {
@@ -90,25 +80,172 @@
       font-size: 1rem;
       cursor: pointer;
       transition: background-color 0.3s;
-      font-family: "Roboto", Arial, sans-serif;
     }
 
     .navbar .get-in-touch:hover {
       background-color: #d35400;
     }
 
+    .hamburger {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      background-color: #fff;
+      padding: 0 10px;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+
+    .hamburger i {
+      color: black;
+      font-size: 1.8rem;
+      transition: transform 0.3s ease, font-size 0.3s ease;
+      display: block;
+      text-align: center;
+      width: 100%;
+      line-height: 50px;
+    }
+
+    .hamburger i.close-icon {
+      font-size: 1.8rem;
+      transform: rotate(180deg);
+    }
+
+    .nav-links.hidden {
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .nav-links.active {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      width: 100%;
+      background-color: #191a1c;
+      padding: 1rem;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+      gap: 1rem;
+    }
+
+    .nav-links.active a {
+      padding: 0.5rem 0;
+      text-align: center;
+      display: block;
+    }
+
+    .nav-links.active .get-in-touch {
+      margin: 0.5rem 0;
+      text-align: center;
+      display: block;
+    }
+
+    .nav-links.active {
+      border: 1px solid #fff;
+    }
 
 
 
 
 
+    @media (max-width: 990px) {
+
+      .hamburger {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        flex-direction: column;
+        width: 100%;
+        top: 70px;
+        left: 0;
+        background-color: #191a1c;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        padding: 1rem;
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .nav-links.active {
+        align-items: flex-start;
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-links.active a,
+      .nav-links.active .get-in-touch {
+        text-align: left;
+      }
+
+      .nav-links.active a {
+        border-bottom: solid 1px #222;
+        width: 100%;
+      }
+
+      .navbar .get-in-touch {
+        border-radius: 0;
+      }
+    }
+
+    @media (min-width: 991px) {
+      .nav-links {
+        display: flex !important;
+      }
+
+      .hamburger {
+        display: none;
+      }
+    }
+
+    @media(max-width:550px) {
+
+      .navbar {
+        padding: 15px 20px;
+      }
+    }
+
+    @media(max-width:480px) {
+
+      .hamburger {
+        font-size: 1.2rem;
+        padding: 0 5px;
+        width: 40px;
+        height: 40px;
+      }
+
+      .hamburger i {
+        font-size: 1.5rem;
+        position: absolute;
+        top: -5px;
+        right: .75px;
+      }
+
+      .hamburger i.close-icon {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
 
 
 
-
-
-
-
+  <!--hero_section-->
+  <style>
     .hero_section {
       width: 100%;
       height: 150px;
@@ -136,21 +273,33 @@
     }
 
 
+    @media(max-width:768px){
+
+.hero_section h2 {
+    font-size: 28px;
+  }
+}
+
+@media(max-width:550px){
+
+.hero_section h2 {
+    font-size: 24px;
+  }
+}
+
+
+  </style>
 
 
 
 
+  <!-- Footer -->
 
 
-
-
-
-
-    /* Footer Styles */
+  <style>
     footer {
       background-color: #121212;
       color: white;
-      margin-top: 0px;
     }
 
     .footer-top {
@@ -264,26 +413,47 @@
       margin-right: 15px;
     }
 
+    @media (max-width: 990px) {
+      .footer-top {
+        padding: 40px 40px;
+      }
+    }
+
     @media (max-width: 768px) {
-      .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .navbar .nav-links {
-        flex-direction: column;
-        gap: 1rem;
-        margin-top: 1rem;
-      }
-
       .footer-container {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
+        gap: 0;
+      }
+
+      .footer-column {
+        width: 100%;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+      }
+
+      .footer-column p {
+        margin-right: 30px;
+        padding: 0;
+      }
+
+      .footer-column ul li {
+        margin: 0px 0;
+        padding: 10px 0;
+        border-bottom: solid 1px #222;
+        width: 85%;
       }
 
       .footer-bottom {
         flex-direction: column;
-        text-align: center;
+        text-align: left;
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .footer-top {
+        padding: 40px 20px;
       }
     }
   </style>
@@ -291,34 +461,72 @@
 
 
 
-<style>
-  .project_page_section {
-    background-color: #191a1c;
-    display: flex;
-    justify-content: center;
-    padding: 70px;
-    gap: 60px;
-    flex-direction: row;
-  }
-  
-  .project_page_section img {
-    flex: 0 0 65%; /* Image takes 60% of the width */
-    max-width: 65%;
-    width: 100%; /* Ensures the image scales properly */
-    height: auto; /* Automatically adjusts height based on width */
-    object-fit: cover; /* Ensures the image fills its box proportionally */
-  }
-  
-  .project_page_section_content {
-    color: #fff;
-    flex: 1; 
-    padding-top: 30px;
-  }
 
-  .project_page_section_content  p{
-    margin-top: 20px;
-  }
+  <style>
+    .project_page_section {
+      background-color: #191a1c;
+      display: flex;
+      justify-content: center;
+      padding: 70px;
+      gap: 60px;
+      flex-direction: row;
+    }
 
+    .project_page_section img {
+      flex: 0 0 65%;
+      max-width: 65%;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .project_page_section_content {
+      color: #fff;
+      flex: 1;
+      padding-top: 30px;
+    }
+
+    .project_page_section_content h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+
+    .project_page_section_content p {
+      margin-top: 20px;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 990px) {
+      .project_page_section {
+        flex-direction: column;
+        padding: 10% 8% 15% 8%;
+        gap: 30px;
+      }
+
+      .project_page_section img {
+        max-width: 100%;
+        width: 100%;
+      }
+
+      .project_page_section_content {
+        text-align: left;
+        padding: 20px 0 0;
+      }
+    }
+
+    @media(max-width:768px) {
+      .project_page_section {
+        padding: 12% 8% 20% 8%;
+      }
+    }
+
+    @media(max-width:550px) {
+      .project_page_section {
+        padding: 15% 8% 25% 8%;
+      }
+    }
   </style>
 
 
@@ -330,15 +538,19 @@
   <!-- Navbar -->
   <nav class="navbar">
     <a href="index.html" class="logo" style="text-decoration: none; color: inherit">S5 Contractors</a>
-    <div class="nav-links">
+    <div class="hamburger">
+      <i class="fas fa-bars"></i>
+    </div>
+    <div class="nav-links ">
       <a href="index.html">Home</a>
       <a href="about.html">About Us</a>
       <a href="services.html">Services</a>
       <a href="projects.html">Projects</a>
       <a href="contact.html">Contact Us</a>
+      <button class="get-in-touch">Get in Touch</button>
     </div>
-    <button class="get-in-touch">Get in Touch</button>
   </nav>
+
 
 
 
@@ -350,9 +562,16 @@
   <div class="hero_section">
     <h2 id="project_category"></h2>
   </div>
-  
+
+
+
+
+
+
+
+
   <div class="project_page_section">
-    
+
     <img id="project_image" src="" alt="Project Image">
 
     <div class="project_page_section_content">
@@ -374,7 +593,7 @@
 
 
 
-  
+
   <!-- Footer -->
   <footer>
     <!-- Top Section -->
@@ -446,155 +665,191 @@
 
 
     const projects = {
-  "consultancy/two-way-approach-matters": {
-    title: "CONSULTANCY",
-    heading: "TWO-WAY APPROACH MATTERS",
-    description: "A two-way approach in consultancy focuses on open communication and collaboration, ensuring the best outcomes through mutual understanding and shared knowledge.",
-    image: "./assets/consultancy_project_consultancy-700x466.jpg"
-  },
-  "corporate/the-breathing-space": {
-    title: "CORPORATE",
-    heading: "THE BREATHING SPACE",
-    description: "This space blends air and glass with simplicity to create a unique, elegant environment. It inspires productivity and creativity, offering a dynamic atmosphere for work.",
-    image: "./assets/corporate_project_Breathing-Space-700x466.jpg"
-  },
-  "furniture/go-wooden-go-royal": {
-    title: "FURNITURE",
-    heading: "GO WOODEN - GO ROYAL",
-    description: "Wood, when selected and treated with purpose, provides a royal touch to any space. The perfect combination of functionality and beauty brings warmth and sophistication to the room.",
-    image: "./assets/furniture_project_image11-700x466.jpeg"
-  },
-  "landscaping/corridor-landscaping": {
-    title: "LANDSCAPING",
-    heading: "CORRIDOR LANDSCAPING",
-    description: "This villa corridor was transformed into a peaceful sanctuary, blending greenery, light, and flooring in harmony. It now creates an inviting and vibrant atmosphere.",
-    image: "./assets/landscaping_project_image5-700x466.jpeg"
-  },
-  "retail/vision-captured": {
-    title: "RETAIL",
-    heading: "VISION CAPTURED",
-    description: "This optical retail chain in Saudi Arabia sets a new standard of elegance, offering a refined experience that attracts unique buyers and curious shoppers alike.",
-    image: "./assets/retail_project_image13-700x466.jpeg"
-  },
-  "consultancy/design-your-space-build-your-dream": {
-    title: "CONSULTANCY",
-    heading: "DESIGN YOUR SPACE, BUILD YOUR DREAM",
-    description: "Designing a space that reflects your dreams and aspirations takes careful planning and a creative approach. We work with you to transform ideas into reality.",
-    image: "./assets/consultancy_project_2.jpg"
-  },
-  "corporate/the-ideal-meeting-room": {
-    title: "CORPORATE",
-    heading: "THE IDEAL MEETING ROOM",
-    description: "This meeting room was designed with every detail in mind, from air circulation to seating arrangements, ensuring optimal productivity and comfort for all users.",
-    image: "./assets/corporate_project_Meeting-Room-700x466.jpg"
-  },
-  "furniture/design-matching": {
-    title: "FURNITURE",
-    heading: "DESIGN MATCHING",
-    description: "The challenge of designing furniture that perfectly complements its surroundings was embraced here, ensuring each piece fits the space while enhancing sophistication and modernity.",
-    image: "./assets/furniture_project_image12-700x466.jpeg"
-  },
-  "hospitality/it-cant-be-warmer": {
-    title: "HOSPITALITY",
-    heading: "IT CAN'T BE WARMER",
-    description: "True hospitality engages all the senses, offering a warm, welcoming atmosphere where comfort transcends design to create a place of true joy and relaxation.",
-    image: "./assets/hospitality_project_It-cant-be-warmer-700x466.jpg"
-  },
-  "swimming-pool/more-than-a-swimming-pool": {
-    title: "SWIMMING-POOL",
-    heading: "MORE THAN A SWIMMING POOL",
-    description: "A pool becomes more than just a space for swimming when it’s paired with serene seating areas and beautiful accessories, offering a place for both relaxation and enjoyment.",
-    image: "./assets/swimming_project_image8-1-700x466.jpeg"
-  },
-  "consultancy/innovation-meets-craftsmanship": {
-    title: "CONSULTANCY",
-    heading: "INNOVATION MEETS CRAFTSMANSHIP",
-    description: "Blending innovation with craftsmanship, we create solutions that not only meet functional needs but also elevate the aesthetic value of every project.",
-    image: "./assets/consultancy_project_3.jpg"
-  },
-  "hospitality/welcoming-spaces-warm-experiences": {
-    title: "HOSPITALITY",
-    heading: "Welcoming Spaces, Warm Experiences",
-    description: "Creating spaces that embrace guests with warmth and comfort, we ensure every detail contributes to a memorable, welcoming experience.",
-    image: "./assets/hospitality_project_2.jpg"
-  },
-  "swimming-pool/water-surroundings": {
-    title: "SWIMMING-POOL",
-    heading: "WATER & SURROUNDINGS",
-    description: "By incorporating water elements and the color blue, we’ve created an aesthetic and relaxing environment, enhanced by the warmth of wooden cladding to bring a sense of coziness.",
-    image: "./assets/swimming_project_image9-635x466.jpeg"
-  },
-  "retail/clothing-that-speaks-style-and-comfort": {
-    title: "RETAIL",
-    heading: "CLOTHING THAT SPEAKS STYLE AND COMFORT",
-    description: "The blend of style and comfort in retail spaces elevates the shopping experience, creating a welcoming environment where each piece of clothing offers both luxury and ease.",
-    image: "./assets/retail_project_3.jpg"
-  },
-  "corporate/hello-luxury": {
-    title: "CORPORATE",
-    heading: "HELLO LUXURY",
-    description: "Luxury is a mindset, a way of elevating experiences. This space was designed to meet new standards of comfort and sophistication, creating a truly luxurious environment.",
-    image: "./assets/corporate_project_Luxury-700x466.jpg"
-  },
-  "furniture/where-function-meets-elegance": {
-    title: "FURNITURE",
-    heading: "WHERE FUNCTION MEETS ELEGANCE",
-    description: "Designing furniture that seamlessly blends function and elegance, we create pieces that enhance both practicality and beauty in every space.",
-    image: "./assets/furniture_project_3.jpg"
-  },
-  "landscaping/oriented-rest-area": {
-    title: "LANDSCAPING",
-    heading: "ORIENTED REST AREA",
-    description: "This restful corner was transformed into an oriental retreat, featuring simple yet elegant decor that brings a sense of peace and romance, especially when candles are lit.",
-    image: "./assets/landscaping_project_image7.jpeg"
-  },
-  "hospitality/where-comfort-meets-care": {
-    title: "HOSPITALITY",
-    heading: "Where Comfort Meets Care",
-    description: "Comfort and care are intertwined in this project, where every detail was considered to create a space that nourishes the body and soul, providing a sense of tranquility and wellbeing.",
-    image: "./assets/hospitality_project_3.jpg"
-  },
-  "swimming-pool/decoration-meets-usability": {
-    title: "SWIMMING-POOL",
-    heading: "DECORATION MEETS USABILITY",
-    description: "This pool design combines functional use with artistic value, creating a space that enhances both social life and the aesthetic appeal of the property.",
-    image: "./assets/swimming_project_SWIMMING-POOL-700x390.jpg"
-  },
-  "landscaping/greenscapes-that-inspire-relaxation": {
-    title: "LANDSCAPING",
-    heading: "GREENSCAPES THAT INSPIRE RELAXATION",
-    description: "The careful integration of greenery into landscapes provides a soothing environment that inspires relaxation, turning outdoor spaces into peaceful retreats.",
-    image: "./assets/landscaping_project_3.jpg"
-  },
-  "retail/shoe-shopping-with-comfort": {
-    title: "RETAIL",
-    heading: "SHOE SHOPPING WITH COMFORT",
-    description: "Shoe shopping has become an elevated experience, where comfort meets style to entertain the eye, soul, and feet within a luxurious retail space.",
-    image: "./assets/retail_project_image14-700x466.jpeg"
-  }
-};
+      "consultancy/two-way-approach-matters": {
+        title: "CONSULTANCY",
+        heading: "TWO-WAY APPROACH MATTERS",
+        description: "A two-way approach in consultancy focuses on open communication and collaboration, ensuring the best outcomes through mutual understanding and shared knowledge.",
+        image: "./assets/consultancy_project_consultancy-700x466.jpg"
+      },
+      "corporate/the-breathing-space": {
+        title: "CORPORATE",
+        heading: "THE BREATHING SPACE",
+        description: "This space blends air and glass with simplicity to create a unique, elegant environment. It inspires productivity and creativity, offering a dynamic atmosphere for work.",
+        image: "./assets/corporate_project_Breathing-Space-700x466.jpg"
+      },
+      "furniture/go-wooden-go-royal": {
+        title: "FURNITURE",
+        heading: "GO WOODEN - GO ROYAL",
+        description: "Wood, when selected and treated with purpose, provides a royal touch to any space. The perfect combination of functionality and beauty brings warmth and sophistication to the room.",
+        image: "./assets/furniture_project_image11-700x466.jpeg"
+      },
+      "landscaping/corridor-landscaping": {
+        title: "LANDSCAPING",
+        heading: "CORRIDOR LANDSCAPING",
+        description: "This villa corridor was transformed into a peaceful sanctuary, blending greenery, light, and flooring in harmony. It now creates an inviting and vibrant atmosphere.",
+        image: "./assets/landscaping_project_image5-700x466.jpeg"
+      },
+      "retail/vision-captured": {
+        title: "RETAIL",
+        heading: "VISION CAPTURED",
+        description: "This optical retail chain in Saudi Arabia sets a new standard of elegance, offering a refined experience that attracts unique buyers and curious shoppers alike.",
+        image: "./assets/retail_project_image13-700x466.jpeg"
+      },
+      "consultancy/design-your-space-build-your-dream": {
+        title: "CONSULTANCY",
+        heading: "DESIGN YOUR SPACE, BUILD YOUR DREAM",
+        description: "Designing a space that reflects your dreams and aspirations takes careful planning and a creative approach. We work with you to transform ideas into reality.",
+        image: "./assets/consultancy_project_2.jpg"
+      },
+      "corporate/the-ideal-meeting-room": {
+        title: "CORPORATE",
+        heading: "THE IDEAL MEETING ROOM",
+        description: "This meeting room was designed with every detail in mind, from air circulation to seating arrangements, ensuring optimal productivity and comfort for all users.",
+        image: "./assets/corporate_project_Meeting-Room-700x466.jpg"
+      },
+      "furniture/design-matching": {
+        title: "FURNITURE",
+        heading: "DESIGN MATCHING",
+        description: "The challenge of designing furniture that perfectly complements its surroundings was embraced here, ensuring each piece fits the space while enhancing sophistication and modernity.",
+        image: "./assets/furniture_project_image12-700x466.jpeg"
+      },
+      "hospitality/it-cant-be-warmer": {
+        title: "HOSPITALITY",
+        heading: "IT CAN'T BE WARMER",
+        description: "True hospitality engages all the senses, offering a warm, welcoming atmosphere where comfort transcends design to create a place of true joy and relaxation.",
+        image: "./assets/hospitality_project_It-cant-be-warmer-700x466.jpg"
+      },
+      "swimming-pool/more-than-a-swimming-pool": {
+        title: "SWIMMING-POOL",
+        heading: "MORE THAN A SWIMMING POOL",
+        description: "A pool becomes more than just a space for swimming when it’s paired with serene seating areas and beautiful accessories, offering a place for both relaxation and enjoyment.",
+        image: "./assets/swimming_project_image8-1-700x466.jpeg"
+      },
+      "consultancy/innovation-meets-craftsmanship": {
+        title: "CONSULTANCY",
+        heading: "INNOVATION MEETS CRAFTSMANSHIP",
+        description: "Blending innovation with craftsmanship, we create solutions that not only meet functional needs but also elevate the aesthetic value of every project.",
+        image: "./assets/consultancy_project_3.jpg"
+      },
+      "hospitality/welcoming-spaces-warm-experiences": {
+        title: "HOSPITALITY",
+        heading: "Welcoming Spaces, Warm Experiences",
+        description: "Creating spaces that embrace guests with warmth and comfort, we ensure every detail contributes to a memorable, welcoming experience.",
+        image: "./assets/hospitality_project_2.jpg"
+      },
+      "swimming-pool/water-surroundings": {
+        title: "SWIMMING-POOL",
+        heading: "WATER & SURROUNDINGS",
+        description: "By incorporating water elements and the color blue, we’ve created an aesthetic and relaxing environment, enhanced by the warmth of wooden cladding to bring a sense of coziness.",
+        image: "./assets/swimming_project_image9-635x466.jpeg"
+      },
+      "retail/clothing-that-speaks-style-and-comfort": {
+        title: "RETAIL",
+        heading: "CLOTHING THAT SPEAKS STYLE AND COMFORT",
+        description: "The blend of style and comfort in retail spaces elevates the shopping experience, creating a welcoming environment where each piece of clothing offers both luxury and ease.",
+        image: "./assets/retail_project_3.jpg"
+      },
+      "corporate/hello-luxury": {
+        title: "CORPORATE",
+        heading: "HELLO LUXURY",
+        description: "Luxury is a mindset, a way of elevating experiences. This space was designed to meet new standards of comfort and sophistication, creating a truly luxurious environment.",
+        image: "./assets/corporate_project_Luxury-700x466.jpg"
+      },
+      "furniture/where-function-meets-elegance": {
+        title: "FURNITURE",
+        heading: "WHERE FUNCTION MEETS ELEGANCE",
+        description: "Designing furniture that seamlessly blends function and elegance, we create pieces that enhance both practicality and beauty in every space.",
+        image: "./assets/furniture_project_3.jpg"
+      },
+      "landscaping/oriented-rest-area": {
+        title: "LANDSCAPING",
+        heading: "ORIENTED REST AREA",
+        description: "This restful corner was transformed into an oriental retreat, featuring simple yet elegant decor that brings a sense of peace and romance, especially when candles are lit.",
+        image: "./assets/landscaping_project_image7.jpeg"
+      },
+      "hospitality/where-comfort-meets-care": {
+        title: "HOSPITALITY",
+        heading: "Where Comfort Meets Care",
+        description: "Comfort and care are intertwined in this project, where every detail was considered to create a space that nourishes the body and soul, providing a sense of tranquility and wellbeing.",
+        image: "./assets/hospitality_project_3.jpg"
+      },
+      "swimming-pool/decoration-meets-usability": {
+        title: "SWIMMING-POOL",
+        heading: "DECORATION MEETS USABILITY",
+        description: "This pool design combines functional use with artistic value, creating a space that enhances both social life and the aesthetic appeal of the property.",
+        image: "./assets/swimming_project_SWIMMING-POOL-700x390.jpg"
+      },
+      "landscaping/greenscapes-that-inspire-relaxation": {
+        title: "LANDSCAPING",
+        heading: "GREENSCAPES THAT INSPIRE RELAXATION",
+        description: "The careful integration of greenery into landscapes provides a soothing environment that inspires relaxation, turning outdoor spaces into peaceful retreats.",
+        image: "./assets/landscaping_project_3.jpg"
+      },
+      "retail/shoe-shopping-with-comfort": {
+        title: "RETAIL",
+        heading: "SHOE SHOPPING WITH COMFORT",
+        description: "Shoe shopping has become an elevated experience, where comfort meets style to entertain the eye, soul, and feet within a luxurious retail space.",
+        image: "./assets/retail_project_image14-700x466.jpeg"
+      }
+    };
 
 
 
 
     if (projectName && projects[projectName]) {
-    document.getElementById('project_category').textContent = projects[projectName].title;  // Changed 'project_title' to 'project_category'
-    document.getElementById('project_heading').textContent = projects[projectName].heading;
-    document.getElementById('project_description').textContent = projects[projectName].description;
-    document.getElementById('project_image').src = projects[projectName].image;
-  } else {
-    // Handle case if no project is found (e.g., show an error or default content)
-    document.getElementById('project_category').textContent = "Project Not Found";  // Changed 'project_title' to 'project_category'
-    document.getElementById('project_heading').textContent = "Project Heading Missing";
-    document.getElementById('project_description').textContent = "Sorry, the project you are looking for does not exist.";
-    document.getElementById('project_image').src = "./assets/default.jpg";
+      document.getElementById('project_category').textContent = projects[projectName].title;  // Changed 'project_title' to 'project_category'
+      document.getElementById('project_heading').textContent = projects[projectName].heading;
+      document.getElementById('project_description').textContent = projects[projectName].description;
+      document.getElementById('project_image').src = projects[projectName].image;
+    } else {
+      // Handle case if no project is found (e.g., show an error or default content)
+      document.getElementById('project_category').textContent = "Project Not Found";  // Changed 'project_title' to 'project_category'
+      document.getElementById('project_heading').textContent = "Project Heading Missing";
+      document.getElementById('project_description').textContent = "Sorry, the project you are looking for does not exist.";
+      document.getElementById('project_image').src = "./assets/default.jpg";
 
-  }
+    }
 
   </script>
 
 
-  
+
+
+
+
+  <script>
+
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("hidden");
+      navLinks.classList.toggle("active");
+
+      const icon = hamburger.querySelector("i");
+      if (icon.classList.contains("fa-bars")) {
+        icon.classList.remove("fa-bars");
+        icon.classList.add("fa-times");
+      } else {
+        icon.classList.remove("fa-times");
+        icon.classList.add("fa-bars");
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth >= 991) {
+        navLinks.classList.remove("hidden");
+        navLinks.classList.remove("active");
+      } else {
+        navLinks.classList.add("hidden");
+      }
+    });
+
+
+  </script>
+
+
+
   <script src="script.js"></script>
 </body>
 
